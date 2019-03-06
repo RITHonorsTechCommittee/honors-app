@@ -1,0 +1,13 @@
+>>> from django_auth_ldap.backend import LDAPBackend
+>>> import logging
+>>> logger = logging.getLogger('django_auth_ldap')
+>>> ch = logging.StreamHandler()
+>>> formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+>>> ch.setFormatter(formatter)
+>>> logger.addHandler(ch)
+>>> back = LDAPBackend()
+>>> user = back.populate_user('aph3032')
+2019-02-28 13:05:49,354 - django_auth_ldap - WARNING - Caught LDAPError while authenticating aph3032
+: SERVER_DOWN({'desc': "Can't contact LDAP server", 'info': 'error:14090086:SSL routines:ssl3_get_se
+rver_certificate:certificate verify failed (self signed certificate in certificate chain)'})
+>>> exit()

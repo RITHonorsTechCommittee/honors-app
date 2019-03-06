@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'honors_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'honors_app',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -127,3 +123,23 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+# LDAP parts
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
+
+AUTH_LDAP_START_TLS = True
+
+# Baseline configuration.
+AUTH_LDAP_SERVER_URI = 'ldaps://ldap.rit.edu'
+
+AUTH_LDAP_USER_SEARCH = LDAPSearch(
+    'ou=people,dc=rit,dc=edu',
+    ldap.SCOPE_SUBTREE,
+    '(uid=%(user)s)',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
