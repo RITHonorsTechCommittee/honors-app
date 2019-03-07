@@ -13,6 +13,6 @@ class Event(models.Model):
     description = models.TextField(blank=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    attendees = models.ManyToManyField(User)
-    organization = models.ForeignKey(Organization, null=True, on_delete=models.SET_NULL)
+    attendees = models.ManyToManyField(User, blank=True)
+    organization = models.ForeignKey(Organization, null=True, on_delete=models.SET_NULL, blank=True)
     private = models.BooleanField()
