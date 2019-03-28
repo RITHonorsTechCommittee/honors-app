@@ -1,4 +1,35 @@
-<h1>{{ event.name }}</h1>
-<h2>{{ event.organization.name }}</h2>
-<p>{{ event.description }}</p>
-<p><time>{{ event.start_time }}</time> to <time>{{ event.end_time }}</time></p>
+<form method="post" action="">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>{{ form.name.label_tag }}</td>
+            <td>{{ form.name }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.description.label_tag }}</td>
+            <td>{{ form.description }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.organization.label_tag }}</td>
+            <td>{{ form.organization }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.start_time.label_tag }}</td>
+            <td>{{ form.start_time }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.end_time.label_tag }}</td>
+            <td>{{ form.end_time }}</td>
+        </tr>
+
+        <tr>
+            <td>{{ form.private.label_tag }}</td>
+            <td>{{ form.private }}</td>
+        </tr>
+    </table>
+    <input id="save" type="submit" value="Save" />
+</form>
