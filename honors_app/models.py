@@ -8,6 +8,10 @@ class Organization(models.Model):
     leaders = models.ManyToManyField(User, related_name='leader_of')
     members = models.ManyToManyField(User, related_name='member_of')
 
+    def __str__(self):
+        return self.name
+
+
 class Event(models.Model):
     name = models.CharField(max_length=256)
     description = models.TextField(blank=True)
@@ -16,3 +20,6 @@ class Event(models.Model):
     attendees = models.ManyToManyField(User, blank=True)
     organization = models.ForeignKey(Organization, null=True, on_delete=models.SET_NULL, blank=True)
     private = models.BooleanField()
+
+    def __str__(self):
+        return self.name
