@@ -13,7 +13,7 @@ def login(request):
 
 @login_required()
 def protectedHomepage(request):
-    return render(request, 'homepage.html')
+    return HttpResponse('Access granted!', status=200)
 
 class EventDetailView(generic.DetailView):
     model = Event
