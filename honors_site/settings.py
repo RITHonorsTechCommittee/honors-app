@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'honors_app.apps.HonorsAppConfig',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
@@ -133,13 +134,3 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-INSTALLED_APPS = (
-    'oauth2_provider',
-    'django.contrib.contenttypes',
-    'django.contrib.auth',
-    'django.contrib.admin',
-    'django.contrib.messages',
-    'django.contrib.sessions',
-    'honors_app',
-)
