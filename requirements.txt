@@ -2,4 +2,3 @@ django
 gunicorn
 django-heroku
 django-oauth-toolkit
-ouath2-provider
