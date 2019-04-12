@@ -1,19 +1,15 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 
 from .models import Event, Organization
 from .forms import EventForm
 
 
-# Create your views here.
-
 def homepage(request):
     return render(request, 'homepage.html')
 
-# class EventDetailView(generic.DetailView):
-#     model = Event
-#     template_name = 'event_detail.html'
 
 def event_details(request, pk):
     if request.method == 'POST':
@@ -30,3 +26,13 @@ def event_details(request, pk):
             form = EventForm(instance=get_object_or_404(Event, pk=pk))
 
     return render(request, 'event_detail.html', {'form': form})
+
+
+def login(request):
+    return render(request, 'login_oauth.html')
+
+
+@login_required()
+def protectedHomepage(request):
+    return HttpResponse('Access granted!', status=200)
+
