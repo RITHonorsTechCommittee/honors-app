@@ -97,10 +97,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#'oauth2_provider.backends.OAuth2Backend',
+#'oauth2_provider.middleware.OAuth2TokenMiddleware',
 AUTHENTICATION_BACKENDS = (
-    'oauth2_provider.backends.OAuth2Backend',
     'django.contrib.auth.backends.ModelBackend',
-    'oauth2_provider.middleware.OAuth2TokenMiddleware',
 )
 
 
