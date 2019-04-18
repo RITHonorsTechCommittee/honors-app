@@ -1,0 +1,13 @@
+<h2>Events Overview for {{ request.user }}: </h2>
+{% for org,events in user_org_events.items %}
+<h4>{{ org.name }}</h4>
+<ul>
+	{% for event in events %}
+	<li>
+		<a href="/event/{{event.pk}}/">{{ event.start_time|date:"DATE_FORMAT" }} - {{ event.name }}</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endfor %}
+
+
