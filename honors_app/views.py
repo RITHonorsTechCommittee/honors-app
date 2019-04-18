@@ -27,12 +27,15 @@ def event_details(request, pk):
 
     return render(request, 'event_detail.html', {'form': form})
 
-
 def login(request):
     return render(request, 'login_oauth.html')
 
+def events_overview(request):
+    user_orgs = Organization.objects.filter(members__in=[request.user])   
+    user_org_events = {}
+    for org in user_orgs: 
+        user_org_events[org] = Event.objects.filter(organization__pk__exact=org.pk)
 
-@login_required()
-def protectedHomepage(request):
-    return HttpResponse('Access granted!', status=200)
-
+    context = {}
+    context['user_org_events'] = user_org_events
+    return render(request, 'events_overview.html', context)   
