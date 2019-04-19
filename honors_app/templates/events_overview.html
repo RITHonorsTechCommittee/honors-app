@@ -17,7 +17,7 @@
             <ul>
                 {% for event in events %}
                 <li class="">
-                    <a href="/event/{{event.pk}}/">{{ event.start_time|date:"DATE_FORMAT" }} - {{ event.name }}</a>
+                    <a href="/events/{{event.pk}}/">{{ event.start_time|date:"DATE_FORMAT" }} - {{ event.name }}</a>
                 </li>
                 {% endfor %}
             </ul>

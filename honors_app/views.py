@@ -39,3 +39,7 @@ def events_overview(request):
     context = {}
     context['user_org_events'] = user_org_events
     return render(request, 'events_overview.html', context)   
+
+def event_view(request,pk):
+    event = Event.objects.get(pk=pk)
+    return render(request, 'event_view.html', {'event':event}) 
