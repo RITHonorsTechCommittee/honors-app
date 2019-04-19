@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse
@@ -22,6 +22,8 @@ def event_edit(request, pk):
             #TODO: add check for sequence, user permsissions
             event = form.save()
             return HttpResponseRedirect(reverse('event-view', args=[event.pk]))
+        else:
+            return HttpResponseBadRequest()
 
     else:
         if pk == 'new':
