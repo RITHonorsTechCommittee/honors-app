@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block title %}Log In{% endblock %}
 
@@ -9,22 +8,26 @@
     <p>Invalid username/password</p>
 {% endif %}
 
-<form method="post" action="{% url 'login' %}" class="pure-form pure-form-aligned">
-    {% csrf_token %}
-    <fieldset>
-        <div class="pure-control-group">
-            {{ form.username.label_tag }}
-            {{ form.username }}
-        </div>
+<div class="pure-g content-container">
+    <div class="pure-u-1-1">
+        <form method="post" action="{% url 'login' %}" class="pure-form pure-form-aligned">
+            {% csrf_token %}
+            <fieldset>
+                <div class="pure-control-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
 
-        <div class="pure-control-group">
-            {{ form.password.label_tag }}
-            {{ form.password }}
-        </div>
-        <div class="pure-controls">
-            <input class="pure-button pure-button-primary" type="submit" value="Log In"/>
-        </div>
-    </fieldset>
-</form>
+                <div class="pure-control-group">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+                <div class="pure-controls">
+                    <input class="pure-button pure-button-primary" type="submit" value="Log In"/>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
