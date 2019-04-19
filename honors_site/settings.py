@@ -73,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'honors_site.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {'default': dj_database_url.config()}
@@ -121,7 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = ''
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ( os.path.join('static'), )
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

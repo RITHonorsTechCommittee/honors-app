@@ -1,0 +1,30 @@
+body {
+    color: #666;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    color: #111;
+}
+
+.header .pure-menu {
+    background-color: #F76902;
+    border-bottom-color: black;
+    border-radius: 0;
+}
+
+body {background-color: #F8F8FF;}
+
+.pure-g {
+    padding-top: 2em;
+}
+
+.eventForm {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 768px;
+}
+
+.orange{
+    background: #F76902;
+    height: 100vh;
+}
