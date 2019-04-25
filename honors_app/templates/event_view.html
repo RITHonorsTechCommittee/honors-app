@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Events Overview{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <div class="pure-g content-container">
+        <div class="pure-u-1-1">
+
+            <h2>{{ event.name }}</h2>
+            <h5>{{ event.organization.name }}</h5>
+            <h5>{{ event.start_time|date:"DATETIME_FORMAT" }}</h5>
+            <p>{{ event.description }}</p>
+            <a class="pure-button" href="edit/">Edit</a>
+        </div>
+    </div>
+{% endblock %}

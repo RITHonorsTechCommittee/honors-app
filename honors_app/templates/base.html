@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'honors_app/css/style.css' %}">
+
+        {% block head %}{% endblock %}
+
+        <link rel="shortcut icon" href="https://www.rit.edu/academicaffairs/honors/favicon.1.ico" />
+
+    </head>
+
+    <body>
+
+        <div class="header">
+            <div class="pure-menu pure-menu-horizontal">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item {% if request.resolver_match.url_name == 'home' %}pure-menu-selected{% endif %}"><a href="{% url 'home' %}" class="pure-menu-link">Home</a></li>
+                    <li class="pure-menu-item {% if request.resolver_match.url_name|slice:':5' == 'event' %}pure-menu-selected{% endif %}"><a href="{% url 'events' %}" class="pure-menu-link">Events</a></li>
+                    <li class="pure-menu-item {% if request.resolver_match.url_name == 'login' %}pure-menu-selected{% endif %}"><a href="{% url 'login' %}" class="pure-menu-link">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {% block body %}{% endblock %}
+
+
+    </body>
+
+</html>

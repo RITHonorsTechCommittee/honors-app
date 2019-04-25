@@ -1,0 +1,63 @@
+
+{% block head %}
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="103686868477-58dr22hrk84265ad3i5e9723nkobb53s.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+{% endblock %}
+
+{% block body %}
+
+    <h4> Sign in with your RIT Google account </h4>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("Full Name: " + profile.getName());
+        console.log("Given Name: " + profile.getGivenName());
+        console.log("Family Name: " + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+
+	document.getElementById("name").innerHTML = ' ' + profile.getName();
+      }
+    </script>
+    <h1 id="hello">Hello there<span id="name"></span>!</h1>
+
+{% endblock %}
+{##}
+{#<html lang="en">#}
+{#  <head>#}
+{#    <meta name="google-signin-scope" content="profile email">#}
+{#    <meta name="google-signin-client_id" content="103686868477-58dr22hrk84265ad3i5e9723nkobb53s.apps.googleusercontent.com">#}
+{#    <script src="https://apis.google.com/js/platform.js" async defer></script>#}
+{#  </head>#}
+{#  <body>#}
+{#    <h4> Sign in with your RIT Google account </h4>#}
+{#    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>#}
+{#    <script>#}
+{#      function onSignIn(googleUser) {#}
+{#        // Useful data for your client-side scripts:#}
+{#        var profile = googleUser.getBasicProfile();#}
+{#        console.log("Full Name: " + profile.getName());#}
+{#        console.log("Given Name: " + profile.getGivenName());#}
+{#        console.log("Family Name: " + profile.getFamilyName());#}
+{#        console.log("Image URL: " + profile.getImageUrl());#}
+{#        console.log("Email: " + profile.getEmail());#}
+{##}
+{#        // The ID token you need to pass to your backend:#}
+{#        var id_token = googleUser.getAuthResponse().id_token;#}
+{#        console.log("ID Token: " + id_token);#}
+{##}
+{#	document.getElementById("name").innerHTML = ' ' + profile.getName();#}
+{#      }#}
+{#    </script>#}
+{#    <h1 id="hello">Hello there<span id="name"></span>!</h1>#}
+{#  </body>#}
+{#</html>#}
